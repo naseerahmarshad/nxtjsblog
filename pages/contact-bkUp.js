@@ -79,12 +79,12 @@ export default function Contactus({contactpage}) {
                   </div>
               </div>
             ))} */}
-
-            {contactpage.filter(contpost => contpost.content.rendered.toLowerCase().includes(searchValue)).map(filteredPost => (
+            {/* {contactpage.filter(contpost => contpost.content.rendered.toLowerCase().includes(searchValue)).map(filteredPost => ( */}
+            {contactpage.filter(contpost => contpost.content.rendered.toLowerCase().includes(searchValue) || contpost.content.rendered.toLowerCase().includes(searchValue)).map(filteredPost => (
               <div key={filteredPost.id} className='col-md-4'>
-                <div className="searchblock">
+                <div className="searchblock mb-5">
                       <h4>{filteredPost.title.rendered}</h4>
-                      <div dangerouslySetInnerHTML={{__html: `${filteredPost.excerpt.rendered}`}}></div>
+                      <div dangerouslySetInnerHTML={{__html: `${filteredPost.excerpt.rendered}`.substring(0, 200) + `...`}}></div>
                   </div>
               </div>
             ))}

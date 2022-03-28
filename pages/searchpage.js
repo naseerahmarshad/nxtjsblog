@@ -27,7 +27,8 @@ export default function Searchpage({searchPageData}) {
         <h1>Showing results for: {routerslug}</h1>
 
         <div className='my-5 row'>
-            {searchPageData.filter(contpost => contpost.content.rendered.toLowerCase().includes(routerslug)).map(filteredPost => (
+            {/* {searchPageData.filter(contpost => contpost.content.rendered.toLowerCase().includes(routerslug)).map(filteredPost => ( */}
+            {searchPageData.filter(contpost => contpost.content.rendered.toLowerCase().includes(routerslug) || contpost.content.rendered.toLowerCase().includes(routerslug)).map(filteredPost => (
                 <div key={filteredPost.id} className='col-md-4'>
                   <div className="searchblock mb-5">
                       <h4>{filteredPost.title.rendered}</h4>
